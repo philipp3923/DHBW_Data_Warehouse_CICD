@@ -1,6 +1,5 @@
 stages:
-  - lint
-  - format
+  - code-quality
 
 pylint:
   stage: lint
