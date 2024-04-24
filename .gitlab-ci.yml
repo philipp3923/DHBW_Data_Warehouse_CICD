@@ -2,7 +2,7 @@ stages:
   - code-quality
 
 pylint:
-  stage: lint
+  stage: code-quality
   image: python:3.10
   script:
     - apt-get update -qy
@@ -13,7 +13,7 @@ pylint:
     - pylint ./*.py
 
 isort:
-  stage: format
+  stage: code-quality
   image: python:3.10
   script:
     - apt-get update -qy
@@ -24,7 +24,7 @@ isort:
     - isort --check ./*.py
 
 black:
-  stage: format
+  stage: code-quality
   image: python:3.10
   script:
     - apt-get update -qy
