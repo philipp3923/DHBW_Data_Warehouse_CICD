@@ -1,7 +1,8 @@
-import paho.mqtt.client as mqtt
-import time
-import numpy as np
 import json
+import time
+
+import numpy as np
+import paho.mqtt.client as mqtt
 
 # Define the broker and topic
 broker_address = "broker.hivemq.com"
