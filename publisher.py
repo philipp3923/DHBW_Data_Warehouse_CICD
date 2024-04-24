@@ -28,4 +28,3 @@ while True:
 
 # Disconnect from the broker
 client.disconnect()
-
