@@ -1,35 +1,38 @@
 stages:
-  - code-quality
+    - code-quality
 
 pylint:
-  stage: code-quality
-  image: python:3.10
-  script:
-    - apt-get update -qy
-    - apt-get install -y python3-pip
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
-    - pip install pylint
-    - pylint ./*.py
+    only:
+        refs:
+            - main
+    stage: code-quality
+    image: python:3.10
+    script:
+        - pip install --upgrade pip
+        - pip install -r requirements.txt
+        - pip install pylint
+        - pylint ./*.py
 
 isort:
-  stage: code-quality
-  image: python:3.10
-  script:
-    - apt-get update -qy
-    - apt-get install -y python3-pip
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
-    - pip install isort
-    - isort --check ./*.py
+    only:
+        refs:
+            - main
+    stage: code-quality
+    image: python:3.10
+    script:
+        - pip install --upgrade pip
+        - pip install -r requirements.txt
+        - pip install isort
+        - isort --check ./*.py
 
 black:
-  stage: code-quality
-  image: python:3.10
-  script:
-    - apt-get update -qy
-    - apt-get install -y python3-pip
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
-    - pip install black
-    - black --check ./*.py
+    only:
+        refs:
+            - main
+    stage: code-quality
+    image: python:3.10
+    script:
+        - pip install --upgrade pip
+        - pip install -r requirements.txt
+        - pip install black
+        - black --check ./*.py
