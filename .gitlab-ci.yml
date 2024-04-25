@@ -4,7 +4,7 @@ stages:
 pylint:
     only:
         refs:
-            - main
+            - dev
     stage: code-quality
     image: python:3.10
     script:
@@ -16,7 +16,7 @@ pylint:
 isort:
     only:
         refs:
-            - main
+            - dev
     stage: code-quality
     image: python:3.10
     script:
@@ -28,7 +28,7 @@ isort:
 black:
     only:
         refs:
-            - main
+            - dev
     stage: code-quality
     image: python:3.10
     script:
